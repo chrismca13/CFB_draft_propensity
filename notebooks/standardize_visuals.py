@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 import matplotlib.colors as mcolors 
 
+
 theme_color_names = {
                         'maize': '#FFCB05',
                         'light_maize': '#FFE066',
@@ -9,6 +10,12 @@ theme_color_names = {
                         'light_blue': '#7DAFDB', 
                         'blue': '#00274C'
                         }
+
+def create_custom_palette():
+    colors_dict = theme_color_names.copy()
+    colors_dict.pop('white', None)
+    custom_palette= list(colors_dict.values())
+    return custom_palette
 
 def create_custom_cmap(hex_colors):
     '''
