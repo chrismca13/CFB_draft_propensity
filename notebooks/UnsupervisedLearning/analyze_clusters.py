@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 
-
 import sys
 import os
 
@@ -13,8 +12,34 @@ parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, parent_dir)
 
 # Now you can import the function from the Python file in the parent directory
-from standardize_visuals import generate_cmap_theme, generate_hex 
+from standardize_visuals import theme_color_names, generate_cmap_theme, generate_hex 
 
+def get_basic_stats(data, column_name):
+    grouped_df = data.groupby(column_name).agg({'name': 'count', 'is_drafted': 'mean'}).reset_index()
+    grouped_df.rename(columns={'name': 'number_of_players'}, inplace=True)
+    return grouped_df
+
+def visualize_conversion_and_pop_size(data, column_name): 
+    fig, ax1 = plt.subplots(figsize=(8,6))
+    grouped_df = get_basic_stats(data, column_name)
+
+    # sns.countplot(x='k_means_cluster', data=df_cluster, color=theme_color_names['blue'])
+    sns.barplot(data=grouped_df, x=column_name, y='number_of_players', color=theme_color_names['light_blue'], ax=ax1)
+    ax1.set_xlabel(column_name)
+    ax1.set_ylabel('Number of Players', color=theme_color_names['light_blue'])
+    ax1.tick_params(axis='y', labelcolor=theme_color_names['light_blue'])
+
+    ax2 = ax1.twinx()
+
+    sns.scatterplot(data=grouped_df, x=column_name,marker='*',s=200, y='is_drafted', color=theme_color_names['maize'], ax=ax2)
+    ax2.set_ylabel('Drafted Percentage', color=theme_color_names['maize'])
+    ax2.tick_params(axis='y', labelcolor=theme_color_names['maize'])
+
+    print(data[column_name].value_counts(normalize=True) )
+    # Add title and labels
+    plt.title(f'Number of Players and Drafted Percentage by {column_name}')
+    plt.tight_layout()
+    plt.show()
 
 def standardize_row_wise(data):
     '''
