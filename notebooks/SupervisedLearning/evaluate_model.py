@@ -49,7 +49,7 @@ def evaluate_cross_val_score(model_object, X_test_processed, y_test):
     X: The whole pre-processed dataset with the features 
     y: The whoole datasets target variable 
     """
-    
+
     scoring = make_scorer(f1_score, average='micro')
     model_scores = cross_val_score(model_object, X_test_processed, y_test, cv=5, scoring=scoring)
 
@@ -78,9 +78,10 @@ def svm_feature_importance(svm_model, preprocessor, X, y_test, visualize=True):
         plt.ylabel('Feature')
         plt.title('Permutation Feature Importances from SVM')
         plt.show()
+
+        return importance_df
     else: 
         return importance_df
-
 
 
 
