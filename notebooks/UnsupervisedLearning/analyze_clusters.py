@@ -31,9 +31,9 @@ def visualize_conversion_and_pop_size(data, column_name):
 
     ax2 = ax1.twinx()
 
-    sns.scatterplot(data=grouped_df, x=column_name,marker='*',s=200, y='is_drafted', color=theme_color_names['maize'], ax=ax2)
-    ax2.set_ylabel('Drafted Percentage', color=theme_color_names['maize'])
-    ax2.tick_params(axis='y', labelcolor=theme_color_names['maize'])
+    sns.scatterplot(data=grouped_df, x=column_name,marker='*',s=200, y='is_drafted', color=theme_color_names['blue'], ax=ax2)
+    ax2.set_ylabel('Drafted Percentage', color=theme_color_names['blue'])
+    ax2.tick_params(axis='y', labelcolor=theme_color_names['blue'])
 
     print(data[column_name].value_counts(normalize=True) )
     # Add title and labels
@@ -89,7 +89,7 @@ def plot_numerical_features(df, numerical_features, cluster_column='k_means_clus
 
     # Standardized Visual 
     plt.figure(figsize=(10, 6))
-    sns.heatmap(standardized_value_means, annot=True, cmap= generate_hex(color_name='maize'), linewidths=0.5)
+    sns.heatmap(standardized_value_means, annot=True, cmap= generate_hex(color_name='blue'), linewidths=0.5)
     plt.title('Numerical Feature (Normalized) Mean Values per Cluster')
     plt.ylabel('Cluster')
     plt.xlabel('Features')
