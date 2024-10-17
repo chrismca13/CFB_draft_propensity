@@ -20,24 +20,23 @@ def get_basic_stats(data, column_name):
     return grouped_df
 
 def visualize_conversion_and_pop_size(data, column_name): 
-    fig, ax1 = plt.subplots(figsize=(8,6))
+    # fig, ax1 = plt.subplots(figsize=(8,6))
+
+    fig, (ax1, ax2) = plt.subplots(1,2,figsize=(12,6))
+
     grouped_df = get_basic_stats(data, column_name)
 
-    # sns.countplot(x='k_means_cluster', data=df_cluster, color=theme_color_names['blue'])
     sns.barplot(data=grouped_df, x=column_name, y='number_of_players', color=theme_color_names['light_blue'], ax=ax1)
     ax1.set_xlabel(column_name)
     ax1.set_ylabel('Number of Players', color=theme_color_names['light_blue'])
     ax1.tick_params(axis='y', labelcolor=theme_color_names['light_blue'])
 
-    ax2 = ax1.twinx()
-
-    sns.scatterplot(data=grouped_df, x=column_name,marker='*',s=200, y='is_drafted', color=theme_color_names['blue'], ax=ax2)
+    sns.barplot(data=grouped_df, x=column_name, y='is_drafted', color=theme_color_names['blue'], ax=ax2)
     ax2.set_ylabel('Drafted Percentage', color=theme_color_names['blue'])
     ax2.tick_params(axis='y', labelcolor=theme_color_names['blue'])
 
     print(data[column_name].value_counts(normalize=True) )
-    # Add title and labels
-    plt.title(f'Number of Players and Drafted Percentage by {column_name}')
+    plt.suptitle(f'Number of Player and Drafted Percentage by {column_name}')
     plt.tight_layout()
     plt.show()
 
