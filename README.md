@@ -2,7 +2,7 @@
 
 Link to Report: https://drive.google.com/file/d/12a1DXxAbH1TLiKgiEn9NIxKaLwzg_wt4/view?usp=sharing
 
-A lot of people say that high school recruiting is the lifeblood of a good college football program. Also, the best NFL football franchises are said to do a nice job of "building through the draft," rather than signing expensive free agents.  
+A lot of people say that high school recruiting is the lifeblood of a good college football program. Additionally, the best NFL football franchises are said to do a nice job of "building through the draft," rather than signing expensive free agents.  
 
 In our capstone project, we combine these two ideas, and try to predict the likelihood of a high school football recruit to be drafted in the NFL. We know that there is a strong relationship between a high school player's recruiting ranking and their draft propensity (see chart below). 
 
