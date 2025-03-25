@@ -13,7 +13,7 @@ Our goal is to consider not just their rating, but a variety of features such as
 1. Unsupervised Learning for feature engineering with DBSCAN, PCA, and K-means
 <img width="812" alt="image" src="https://github.com/user-attachments/assets/ca287cfd-6fae-4580-8666-c6de241402ce" />
 
-2. Supervised Learning with Random Forest Classifier, SVMs, and Logistic Regression, with the best and most stable results being the Random Forest Classifier with a mean f1-score of .87
+2. Supervised Learning with Random Forest Classifier, SVMs, and Logistic Regression, with the best and most stable results being the Random Forest Classifier with a mode f1-score of .87
 <img width="413" alt="image" src="https://github.com/user-attachments/assets/2588eae5-2827-458a-9d18-794325776352" />
 
 3. We also conducted robust feature analysis, sensitivity analysis, and failure analysis.
